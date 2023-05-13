@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        background: black;
+      }
+
+      .button-container {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        color: white;
+        display: flex;
+      }
+
+      .btn {
+        /* border: 3px solid rgb(25, 25, 25); */
+        border-radius: 4rem;
+        padding: 2rem 6rem;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        background-color: rgb(44, 44, 44);
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .circular {
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        /* transform: translateX(-50%) translateY(-50%); */
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        /* top: 50%;
+        left: 50%; */
+        /* transform: translateX(-50%); */
+        background: conic-gradient(
+          rgb(56, 56, 56) 0deg,
+          rgba(180, 180, 180, 0.475) 0deg 50deg,
+          transparent 50deg
+        );
+        /* background-color:  rgba(228, 228, 228, 0.302); */
+        transition: 1.5ms ease-in-out all;
+        animation: rotate 3s linear 0s reverse infinite;
+        z-index: 5;
+      }
+
+      .overlay {
+        position: absolute;
+        height: 95%;
+        width: 98%;
+        z-index: 10;
+        top: 50%;
+        border-radius: 4rem;
+        left: 50%;
+        translate: -50% -50%;
+        display: grid;
+        place-items: center;
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="button-container">
+      <button class="btn">
+        <div class="circular"></div>
+        <div class="overlay text-center">Text Me!</div>
+      </button>
+    </div>
+  </body>
+</html>
