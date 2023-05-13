@@ -31,8 +31,15 @@
         padding: 2rem 6rem;
         position: relative;
         z-index: 2;
-        overflow: hidden;
         background-color: rgb(44, 44, 44);
+      }
+
+      .btn-overflow__hide {
+        overflow: hidden;
+      }
+
+      .high-z-index {
+        z-index: 20 !important;
       }
 
       @keyframes rotate {
@@ -55,10 +62,17 @@
         /* top: 50%;
         left: 50%; */
         /* transform: translateX(-50%); */
-        background: conic-gradient(
-          rgb(56, 56, 56) 0deg,
+        /* background: conic-gradient(
+          rgba(255, 255, 255, 0.757) 0deg,
           rgba(180, 180, 180, 0.475) 0deg 50deg,
           transparent 50deg
+        ); */
+        background-size: 100% 100%;
+        background-position: 0px 0px;
+        background-image: conic-gradient(
+          from 158deg at 50% 50%,
+          #ff000000 87%,
+          #ff5a00ff 93%
         );
         /* background-color:  rgba(228, 228, 228, 0.302); */
         transition: 1.5ms ease-in-out all;
@@ -68,7 +82,7 @@
 
       .overlay {
         position: absolute;
-        height: 95%;
+        height: 92%;
         width: 98%;
         z-index: 10;
         top: 50%;
@@ -79,15 +93,26 @@
         place-items: center;
         background-color: black;
       }
+
+      .text-white {
+        color: white;
+      }
     </style>
   </head>
 
   <body>
+    <div class="text-white">
+      <label>
+        Show overlay
+        <input id="show_overlay" type="checkbox" />
+      </label>
+    </div>
     <div class="button-container">
-      <button class="btn">
-        <div class="circular"></div>
+      <button id="main_btn" class="btn btn-overflow__hide">
+        <div id="circular_overlay" class="circular"></div>
         <div class="overlay text-center">Text Me!</div>
       </button>
     </div>
   </body>
+  <script src="main.js"></script>
 </html>
